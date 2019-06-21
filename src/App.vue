@@ -10,6 +10,9 @@
 
 <style lang="scss">
 #app {
+  background-image: url('https://backiee.com/static/wpdb/wallpapers/7680x4320/217772.jpg');
+  height: 100vh;
+  background-size: cover;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,4 +29,5 @@
     }
   }
 }
+
 </style>
