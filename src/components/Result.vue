@@ -1,6 +1,6 @@
 <template>
   <div class="result">
-    <h2>{{ TextResult }}</h2>
+    `<h2>{{ TextResult }}</h2>`
   </div>
 </template>
 
