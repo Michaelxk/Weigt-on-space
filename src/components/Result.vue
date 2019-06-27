@@ -1,6 +1,6 @@
 <template>
   <div class="result">
-    `<h2>{{ TextResult }}</h2>`
+    <h2>{{ TextResult }}</h2>
   </div>
 </template>
 
@@ -10,3 +10,6 @@ export default {
   props: ['textResult'],
 };
 </script>
+<style>
+
+</style>

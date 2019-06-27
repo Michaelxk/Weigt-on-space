@@ -40,34 +40,42 @@ export default {
         case 'Mars':
           this.Result = (this.yourWeight * 3.7) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg.`;
           break;
         case 'Jupiter':
           this.Result = (this.yourWeight * 24.8) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         case 'Mercury':
           this.Result = (this.yourWeight * 3.7) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         case 'Venus':
           this.Result = (this.yourWeight * 8.87) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         case 'Saturn':
           this.Result = (this.yourWeight * 10.4) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         case 'Uranus':
           this.Result = (this.yourWeight * 8.7) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         case 'Neptune':
           this.Result = (this.yourWeight * 11.15) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         case 'Moon':
           this.Result = (this.yourWeight * 1.62) / 9.8;
           this.TextResult = Math.round(this.Result);
+          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         default:
         // code block
@@ -115,4 +123,5 @@ export default {
   justify-content: center;
   width: 100%;
 }
+
 </style>
