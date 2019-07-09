@@ -1,29 +1,30 @@
 <template>
   <div class="container">
     <form @submit.prevent="calcWeight">
-      <input id="weight" type="number" placeholder="place your weight here"
-       v-model="yourWeight" required>
-        <select class="form-control" v-model="choosePlanet" id="chooseYourPlanet" required>
-          <option>Mercury</option>
-          <option>Venus</option>
-          <option>Mars</option>
-          <option>Jupiter</option>
-          <option>Saturn</option>
-          <option>Uranus</option>
-          <option>Neptune</option>
-          <option>Moon</option>
+      <input
+        id="weight"
+        type="number"
+        placeholder="place your weight here"
+        v-model="yourWeight"
+        required
+      >
+        <select class="form-control" v-model="planetChosen" id="chooseYourPlanet" required>
+          <option v-for="(planet, index) in Object.keys(this.planets)" :key="index">
+            {{ planet }}
+          </option>
        </select>
       <input type="submit" class="btn bg-primary" value="make calculation">
     </form>
-      <Result v-text="TextResult" class="result" />
-      <ImgApi></ImgApi>
 
+    <Result class="result" :planetChosen="planetChosen">
+      {{ `Your weight on ${this.planetChosen} is: ${this.RoundResult} kg.` }}
+    </Result>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Result from '@/components/Result.vue';
-import ImgApi from '@/components/ImgApi.vue';
 
 export default {
   name: 'Gravity',
@@ -31,56 +32,26 @@ export default {
   data() {
     return {
       yourWeight: null,
-      choosePlanet: null,
-      TextResult: null,
+      planetChosen: null,
       Result: null,
+      RoundResult: null,
     };
+  },
+  computed: {
+    ...mapState({
+      planets: state => state.gravityValues,
+      earth: state => state.earthGravity,
+    }),
   },
   methods: {
     calcWeight() {
-      switch (this.yourWeight && this.choosePlanet) {
-        case 'Mars':
-          this.Result = (this.yourWeight * 3.7) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg.`;
-          break;
-        case 'Jupiter':
-          this.Result = (this.yourWeight * 24.8) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        case 'Mercury':
-          this.Result = (this.yourWeight * 3.7) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        case 'Venus':
-          this.Result = (this.yourWeight * 8.87) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        case 'Saturn':
-          this.Result = (this.yourWeight * 10.4) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        case 'Uranus':
-          this.Result = (this.yourWeight * 8.7) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        case 'Neptune':
-          this.Result = (this.yourWeight * 11.15) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        case 'Moon':
-          this.Result = (this.yourWeight * 1.62) / 9.8;
-          this.TextResult = Math.round(this.Result);
-          this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
-          break;
-        default:
-      }
+      const {
+        yourWeight,
+        planets,
+        planetChosen,
+        earth,
+      } = this;
+      this.RoundResult = Math.round((yourWeight * planets[planetChosen]) / earth);
     },
   },
 };
@@ -103,7 +74,8 @@ export default {
   color:#fff;
 }
 .form-control option {
-  color:#fff;
+  color: darkgray;
+  text-transform: capitalize;
 }
 .result {
   margin-top: 20px;
