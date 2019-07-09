@@ -10,6 +10,3 @@ export default {
   props: ['textResult'],
 };
 </script>
-<style>
-
-</style>

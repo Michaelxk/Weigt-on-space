@@ -16,11 +16,14 @@
       <input type="submit" class="btn bg-primary" value="make calculation">
     </form>
       <Result v-text="TextResult" class="result" />
+      <ImgApi></ImgApi>
+
   </div>
 </template>
 
 <script>
 import Result from '@/components/Result.vue';
+import ImgApi from '@/components/ImgApi.vue';
 
 export default {
   name: 'Gravity',
@@ -29,7 +32,6 @@ export default {
     return {
       yourWeight: null,
       choosePlanet: null,
-      feedback: null,
       TextResult: null,
       Result: null,
     };
@@ -78,7 +80,6 @@ export default {
           this.TextResult = `Your weight on ${this.choosePlanet} is: ${this.TextResult} kg`;
           break;
         default:
-        // code block
       }
     },
   },
