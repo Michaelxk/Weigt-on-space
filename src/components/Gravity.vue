@@ -57,6 +57,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$whiteColor: #fff;
+$longestWidth: 100%;
+
 .container {
   box-sizing: border-box;
 }
@@ -64,37 +67,33 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-.form-control {
-  width: 100%;
+  .form-control {
+  width: $longestWidth;
   display: flex;
   justify-content: center;
   margin: 20px;
   margin-left: -1px;
-  color:#fff;
-}
-.form-control option {
+  color: $whiteColor;
+  }
+  .form-control option {
   color: darkgray;
   text-transform: capitalize;
+  }
 }
+ #weight {
+  width: $longestWidth;
+  color: $whiteColor;
+  font-weight: bold;
+  font-size: 1.25em;
+  }
 .result {
   margin-top: 20px;
   font-size: 2.1em;
-  color: #fff;
-}
-#weight {
-  width: 100%;
-  color: white;
-  font-weight: bold;
-  font-size: 1.25em;
-}
-#chooseYourPlanet {
-  color: #000;
+  color: $whiteColor;
 }
 .bg-primary {
   margin-top: 10px;
   justify-content: center;
-  width: 100%;
+  width: $longestWidth;
 }
-
 </style>
