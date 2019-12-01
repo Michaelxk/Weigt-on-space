@@ -3,7 +3,9 @@
     <h2>
       <slot></slot>
     </h2>
-    <img :src="planetPicture" alt="planet pic">
+    <div v-if="results">
+      <img :src="planetPicture" alt="planet pic">
+    </div>
   </div>
 </template>
 
