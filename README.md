@@ -1,4 +1,9 @@
 # weight-on-space
+Take a look at your weight on other planets to learn more about how gravity works and be amazed at how much, or how little, you weigh on other worlds.
+
+## Live preview
+
+https://weight-on-space.web.app/
 
 ## Project setup
 ```
